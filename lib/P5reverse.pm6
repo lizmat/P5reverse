@@ -1,5 +1,6 @@
 use v6.c;
-unit module P5reverse:ver<0.0.3>;
+
+unit module P5reverse:ver<0.0.4>:auth<cpan:ELIZABETH>;
 
 proto sub reverse(|) is export {*}
 multi sub reverse() { reverse CALLERS::<$_> }
