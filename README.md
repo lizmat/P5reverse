@@ -1,9 +1,7 @@
-[![Build Status](https://travis-ci.org/lizmat/P5reverse.svg?branch=master)](https://travis-ci.org/lizmat/P5reverse)
-
 NAME
 ====
 
-P5reverse - Implement Perl 5's reverse() built-in
+P5reverse - Implement Perl's reverse() built-in
 
 SYNOPSIS
 ========
@@ -25,7 +23,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `reverse` function of Perl 5 as closely as possible.
+This module tries to mimic the behaviour of the `reverse` function of Perl as closely as possible.
 
 ORIGINAL PERL 5 DOCUMENTATION
 =============================
@@ -62,7 +60,7 @@ ORIGINAL PERL 5 DOCUMENTATION
 PORTING CAVEATS
 ===============
 
-Whereas in Perl 5 the type of context determines how `reverse` operates, in this implementation it's the type of parameter that determines the semantics. When given a `List`, it will revert the order of the elements. When given something that can coerce to a `Str`, it will return a string with the characters reversed in order.
+Whereas in Perl the type of context determines how `reverse` operates, in this implementation it's the type of parameter that determines the semantics. When given a `List`, it will revert the order of the elements. When given something that can coerce to a `Str`, it will return a string with the characters reversed in order.
 
 AUTHOR
 ======
@@ -74,9 +72,9 @@ Source can be located at: https://github.com/lizmat/P5reverse . Comments and Pul
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018-2019 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
