@@ -1,7 +1,7 @@
 NAME
 ====
 
-P5reverse - Implement Perl's reverse() built-in
+Raku port of Perl's reverse() built-in
 
 SYNOPSIS
 ========
@@ -23,7 +23,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `reverse` function of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's `reverse` built-in as closely as possible in the Raku Programming Language.
 
 ORIGINAL PERL 5 DOCUMENTATION
 =============================
@@ -60,7 +60,25 @@ ORIGINAL PERL 5 DOCUMENTATION
 PORTING CAVEATS
 ===============
 
+Context does not define behaviour
+---------------------------------
+
 Whereas in Perl the type of context determines how `reverse` operates, in this implementation it's the type of parameter that determines the semantics. When given a `List`, it will revert the order of the elements. When given something that can coerce to a `Str`, it will return a string with the characters reversed in order.
+
+$_ no longer accessible from caller's scope
+-------------------------------------------
+
+In future language versions of Raku, it will become impossible to access the `$_` variable of the caller's scope, because it will not have been marked as a dynamic variable. So please consider changing:
+
+    reverse;
+
+to either:
+
+    reverse($_);
+
+or, using the subroutine as a method syntax, with the prefix `.` shortcut to use that scope's `$_` as the invocant:
+
+    .&reverse;
 
 AUTHOR
 ======
@@ -72,7 +90,7 @@ Source can be located at: https://github.com/lizmat/P5reverse . Comments and Pul
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

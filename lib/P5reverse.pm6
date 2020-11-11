@@ -1,6 +1,6 @@
-use v6.c;
+use v6.d;
 
-unit module P5reverse:ver<0.0.6>:auth<cpan:ELIZABETH>;
+unit module P5reverse:ver<0.0.7>:auth<cpan:ELIZABETH>;
 
 proto sub reverse(|) is export {*}
 multi sub reverse() { reverse CALLERS::<$_> }
@@ -11,7 +11,7 @@ multi sub reverse(Str() $s --> Str:D)   { $s.flip         }
 
 =head1 NAME
 
-P5reverse - Implement Perl's reverse() built-in
+Raku port of Perl's reverse() built-in
 
 =head1 SYNOPSIS
 
@@ -31,8 +31,8 @@ P5reverse - Implement Perl's reverse() built-in
 
 =head1 DESCRIPTION
 
-This module tries to mimic the behaviour of the C<reverse> function of Perl
-as closely as possible.
+This module tries to mimic the behaviour of Perl's C<reverse> built-in as
+closely as possible in the Raku Programming Language.
 
 =head1 ORIGINAL PERL 5 DOCUMENTATION
 
@@ -67,11 +67,30 @@ as closely as possible.
 
 =head1 PORTING CAVEATS
 
+=head2 Context does not define behaviour
+
 Whereas in Perl the type of context determines how C<reverse> operates, in
 this implementation it's the type of parameter that determines the semantics.
 When given a C<List>, it will revert the order of the elements.  When given
 something that can coerce to a C<Str>, it will return a string with the
 characters reversed in order.
+
+=head2 $_ no longer accessible from caller's scope
+
+In future language versions of Raku, it will become impossible to access the
+C<$_> variable of the caller's scope, because it will not have been marked as
+a dynamic variable.  So please consider changing:
+
+    reverse;
+
+to either:
+
+    reverse($_);
+
+or, using the subroutine as a method syntax, with the prefix C<.> shortcut
+to use that scope's C<$_> as the invocant:
+
+    .&reverse;
 
 =head1 AUTHOR
 
@@ -82,10 +101,12 @@ Pull Requests are wereverseome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
 =end pod
+
+# vim: expandtab shiftwidth=4
