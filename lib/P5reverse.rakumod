@@ -1,6 +1,6 @@
 use v6.d;
 
-unit module P5reverse:ver<0.0.7>:auth<cpan:ELIZABETH>;
+unit module P5reverse:ver<0.0.8>:auth<zef:lizmat>;
 
 proto sub reverse(|) is export {*}
 multi sub reverse() { reverse CALLERS::<$_> }
@@ -94,14 +94,14 @@ to use that scope's C<$_> as the invocant:
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/P5reverse . Comments and
 Pull Requests are wereverseome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018-2020 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

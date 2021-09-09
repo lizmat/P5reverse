@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/P5reverse/workflows/test/badge.svg)](https://github.com/lizmat/P5reverse/actions)
+
 NAME
 ====
 
@@ -83,14 +85,14 @@ or, using the subroutine as a method syntax, with the prefix `.` shortcut to use
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/P5reverse . Comments and Pull Requests are wereverseome.
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2020 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
