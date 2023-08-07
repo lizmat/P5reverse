@@ -1,9 +1,7 @@
 use v6.d;
 
-unit module P5reverse:ver<0.0.8>:auth<zef:lizmat>;
-
 proto sub reverse(|) is export {*}
-multi sub reverse() { reverse CALLERS::<$_> }
+multi sub reverse() { reverse CALLER::LEXICAL::<$_> }
 multi sub reverse(List:D $l --> List:D) { $l.reverse.List }
 multi sub reverse(Str() $s --> Str:D)   { $s.flip         }
 
@@ -96,12 +94,16 @@ to use that scope's C<$_> as the invocant:
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 Source can be located at: https://github.com/lizmat/P5reverse . Comments and
 Pull Requests are wereverseome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2023 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

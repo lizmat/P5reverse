@@ -2,10 +2,9 @@ use v6.*;
 use Test;
 use P5reverse;
 
-plan 6;
+plan 5;
 
 ok defined(::('&reverse')),           'is &reverse imported?';
-ok !defined(P5reverse::{'&reverse'}), 'is &reverse externally NOT accessible?';
 
 is reverse('Foo'),     'ooF', 'did we get a good ooF';
 is reverse((1,2,3)), '3 2 1', 'did we get a good 3 2 1';
