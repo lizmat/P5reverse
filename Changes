@@ -1,6 +1,8 @@
 Revision history for P5reverse
 
 {{$NEXT}}
+
+0.0.10  2026-08-24T11:39:58+02:00
     - No longer support using the caller's topic variable
     - Modernize META and documentation
     - Add full coverage testing
