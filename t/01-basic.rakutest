@@ -2,7 +2,7 @@ use v6.*;
 use Test;
 use P5reverse;
 
-plan 5;
+plan 6;
 
 ok defined(::('&reverse')),           'is &reverse imported?';
 
@@ -11,5 +11,7 @@ is reverse((1,2,3)), '3 2 1', 'did we get a good 3 2 1';
 
 with "Bar" { is .&reverse,   'raB', 'did we get a good implicit raB'   }
 with 1,2,3 { is .&reverse, '3 2 1', 'did we get a good implicit 3 2 1' }
+
+dies-ok { reverse() }, 'reverse without args dies';
 
 # vim: expandtab shiftwidth=4
